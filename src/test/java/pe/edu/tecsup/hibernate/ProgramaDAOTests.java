@@ -27,26 +27,27 @@ public class ProgramaDAOTests {
         Assert.assertTrue(programas.size() > 0);
     }
 
-    @Test
+   //@Test
     public void verifyFind() {
         Programa programa = programaDAO.get(1l);
+        System.out.println("Filtrando el id 1");
         System.out.println(programa.getNombre());
         Assert.assertTrue(programa.getId() == 1l);
     }
 
-    @Test
+    //@Test
     public void verifySave() {
 
         Programa programa = new Programa();
         programa.setCodigo("1020");
-        programa.setNombre("Nuevo Programa");
-        programa.setDescripcion("......");
+        programa.setNombre("Ingles");
+        programa.setDescripcion("Ingles avanzado");
 
         programaDAO.save(programa);
         Assert.assertTrue(programa.getId() != null);
     }
 
-    @Test
+   // @Test
     public void verifyUpdate() {
 
         // cambiar el código para validar
@@ -63,10 +64,10 @@ public class ProgramaDAOTests {
     public void verifyDelete() {
 
         Programa programa = new Programa();
-        programa.setId(3l);
+        programa.setId(1l);
         programaDAO.delete(programa);
 
-        Assert.assertTrue(programaDAO.get(3l) == null);
+        Assert.assertTrue(programaDAO.get(1l) == null);
     }
 
 }

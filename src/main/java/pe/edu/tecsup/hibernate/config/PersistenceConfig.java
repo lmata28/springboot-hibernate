@@ -14,9 +14,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ConfigurationProperties(prefix = "persistence")
+@ConfigurationProperties(prefix = "persistence") // todos las propiedades del prefijo persistencia son asignados al objeto
 public class PersistenceConfig {
-
+// Injecta valores traidos de application.propiedades
     @Value("${driver}")
     String driver;
 
