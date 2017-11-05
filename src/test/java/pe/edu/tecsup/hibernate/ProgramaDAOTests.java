@@ -10,6 +10,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import pe.edu.tecsup.hibernate.dao.ProgramaDAO;
 import pe.edu.tecsup.hibernate.model.Programa;
 
+
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ProgramaDAOTests {
@@ -60,7 +62,7 @@ public class ProgramaDAOTests {
         Assert.assertTrue(programaDAO.get(1l).getCodigo().equals("999"));
     }
 
-    @Test
+    //@Test
     public void verifyDelete() {
 
         Programa programa = new Programa();

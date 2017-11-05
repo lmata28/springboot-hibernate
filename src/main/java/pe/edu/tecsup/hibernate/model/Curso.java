@@ -30,12 +30,12 @@ public class Curso implements Serializable {
     private String codigo;
 
     @Column(name = "fecha_inicio")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE)// la columna es fecha no tiene timestamp
     private Date fechaInicio;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_programa")
-    private Programa programa;
+    private Programa programa; // ojo el mapead
 
     public Long getId() {
         return id;

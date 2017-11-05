@@ -14,7 +14,7 @@ public class ProgramaDAOH extends BaseHibernateDAO implements ProgramaDAO {
 
     @Override
     public List<Programa> list() {
-
+// consuulta el objeto programa
         Criteria criteria = this.getSession().createCriteria(Programa.class);
         return criteria.list();
     }

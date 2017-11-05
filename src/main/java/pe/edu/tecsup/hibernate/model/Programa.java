@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "programa")
 public class Programa implements Serializable {
 
-    @Id
+    @Id //llave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
@@ -28,7 +28,7 @@ public class Programa implements Serializable {
 
     @Column(name = "codigo")
     private String codigo;
-
+// feth lazy es diferido
     @OneToMany(mappedBy = "programa", fetch = FetchType.LAZY)
     private List<Curso> cursos;
 
