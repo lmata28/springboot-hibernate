@@ -2,6 +2,7 @@ package pe.edu.tecsup.hibernate.helper;
 
 import java.util.List;
 
+//T???.... maybe tabla
 public interface GenericDAO<T> {
 
     public List<T> list();

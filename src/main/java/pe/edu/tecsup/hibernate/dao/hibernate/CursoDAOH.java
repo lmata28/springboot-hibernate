@@ -2,6 +2,7 @@ package pe.edu.tecsup.hibernate.dao.hibernate;
 
 import java.util.List;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,4 +42,24 @@ public class CursoDAOH extends BaseHibernateDAO implements CursoDAO {
         this.getSession().delete(t);
     }
 
+    @Override
+    public Curso getByCodigo(String codigo) {
+        Criteria criteria = this.getSession().createCriteria(Curso.class);
+        criteria.add(Restrictions.eq("codigo", codigo));
+        return (Curso) criteria.uniqueResult();
+        //no esta funcionando
+    }
+
+    @Override
+    public List<Curso> getByNombre(String nombre) {
+
+        String sql = "from " + Curso.class.getName() +" c "
+                + " left join fetch c.programa p "
+                + " where c.nombre like :NOMBRE ";
+
+        Query query = this.getSession().createQuery(sql);
+        query.setString("NOMBRE", "%" + nombre + "%");
+
+        return query.list();
+    }
 }
